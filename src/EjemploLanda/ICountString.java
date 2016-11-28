@@ -4,5 +4,7 @@ package EjemploLanda;
 @FunctionalInterface
 
 public interface ICountString {
-    public String contar(String palabra);
+    public String contar
+
+            (String palabra);
 }
