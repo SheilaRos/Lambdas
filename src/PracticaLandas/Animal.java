@@ -18,6 +18,10 @@ public class Animal {
         this.potCaminar = potCaminar;
     }
 
+    public String getEspecie() {
+        return especie;
+    }
+
     public boolean isPotSaltar() {
         return potSaltar;
     }

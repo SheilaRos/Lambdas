@@ -16,15 +16,19 @@ public class LambdasZooPredicate {
         List<Predicate<Animal>> myChecks = new ArrayList<>();
 
         Predicate<Animal> checkSalto = (animal) -> {
+            System.out.print("Testing check saltar : ");
             return animal.isPotSaltar();
         };
         Predicate<Animal> checkNadar = (animal) -> {
+            System.out.print("Testing check nadar : ");
             return animal.isPotNadar();
         };
         Predicate<Animal> checkCaminar = (animal) -> {
+            System.out.print("Testing check caminar : ");
             return animal.isPotCaminar();
         };
         Predicate<Animal> checkVolar = (animal) -> {
+            System.out.print("Testing check volar : ");
             return animal.isPotVolar();
         };
 
@@ -38,8 +42,11 @@ public class LambdasZooPredicate {
     }
 
     public static void showCheckAtr(List<Animal> animales, List<Predicate<Animal>> myChecks){
+        System.out.println("Hecho con Predicate : ");
         animales.forEach(animal -> {
-            myChecks.forEach(checkAtribut -> checkAtribut.test(animal));
+            System.out.println("");
+            System.out.println("Testing animal "+animal.getEspecie());
+            myChecks.forEach(checkAtribut -> System.out.println(checkAtribut.test(animal)));
         });
     }
 }
