@@ -74,13 +74,54 @@ public class LOLAPP {
         myCheks.add(armadura);
         myCheks.add(resMagica);
         myCheks.add(mana);
+        showCheckEst(lista, myCheks);
 
+        System.out.println("");
+        List<PersonajeLOL> misPersonajes = new ArrayList<>();
+        misPersonajes.add(new PersonajeLOL("Caitlyn", 480, 49, 68, 310, 3, 26, 31, 290));
+        misPersonajes.add(new PersonajeLOL("Leona", 530, 53, 63, 320, 4, 31, 36, 270));
+        List<ObjetoLOL> itemsComprados = new ArrayList<>();
+        int i = 0;
+        while(i<misPersonajes.size()) {
+            System.out.println("");
+            System.out.println("Personaje : ");
+            System.out.println(misPersonajes.get(i));
+            System.out.println("");
+            System.out.println("Compra : ");
+            itemsComprados = new ArrayList<>();
+            if(i==0){
+                System.out.println(lista.get(1));
+                System.out.println(lista.get(3));
+                itemsComprados.add(lista.get(1));
+                itemsComprados.add(lista.get(3));
+                misPersonajes.get(i).setMisObjetos(itemsComprados);
+            }else{
+                System.out.println(lista.get(2));
+                itemsComprados.add(lista.get(2));
+                misPersonajes.get(i).setMisObjetos(itemsComprados);
+            }
+            System.out.println("");
+            System.out.println("Estadísticas finales : ");
+            for(PersonajeLOL p : misPersonajes){
+                for(ObjetoLOL o : p.getMisObjetos()){
+                    p.setVida(p.getVida() + o.getVida());
+                    p.setArmadura(p.getArmadura()+o.getArmadura());
+                    p.setdAtaque(p.getdAtaque()+o.getdAtaque());
+                    p.setvAtaque(p.getvAtaque()+o.getvAtaque());
+                    p.setvMovimiento(p.getvMovimiento()+o.getvMovimiento());
+                    p.setRegVida(p.getRegVida()+o.getRegVida());
+                    p.setResMagica(p.getResMagica()+o.getResMagica());
+                    p.setMana(p.getMana()+o.getMana());
+                }
+            }
+            System.out.println(misPersonajes.get(i));
+            i++;
+        }
 
-        showCheckAtr(lista, myCheks);
 
 
     }
-    public static void showCheckAtr(List<ObjetoLOL> objeto, List<CheckEstadistica> myChecks){
+    public static void showCheckEst(List<ObjetoLOL> objeto, List<CheckEstadistica> myChecks){
         for(CheckEstadistica a: myChecks){
             for(ObjetoLOL o : objeto){
                 if(a.checkEstadistica(o)){
@@ -89,4 +130,5 @@ public class LOLAPP {
             }
         }
     }
+
 }
